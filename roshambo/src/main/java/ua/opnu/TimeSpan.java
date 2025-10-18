@@ -46,7 +46,7 @@ public class TimeSpan {
         }
     }
 
-    public void addMinutes(int minutes) {
+    public void add(int minutes) {
         if (!(minutes < 0 || minutes > 59)) {
             if (this.minutes + minutes > 60) {
                 ++this.hours;
@@ -56,7 +56,7 @@ public class TimeSpan {
         }
     }
 
-    public void addTimeSpan(TimeSpan timespan) {
+    public void add(TimeSpan timespan) {
         if (getMinutes() + timespan.getMinutes() > 60) {
             ++timespan.hours;
             timespan.minutes -= 60;
@@ -73,7 +73,7 @@ public class TimeSpan {
         return getMinutes() + getHours() * 60;
     }
 
-    public void subtractTimeSpan(TimeSpan span) {
+    public void subtract(TimeSpan span) {
         if ((getHours() - span.getHours() > 0) || ((getHours() - span.getHours() == 0)
                 && (getMinutes() - span.getMinutes() > -1))) {
             if (getMinutes() - span.getMinutes() < 0) {
@@ -85,7 +85,7 @@ public class TimeSpan {
         }
     }
 
-    public void subtractMinutes(int minutes) {
+    public void subtract(int minutes) {
         if (this.minutes - minutes < 0 && this.hours > 0) {
             --this.hours;
             this.minutes += 60;
